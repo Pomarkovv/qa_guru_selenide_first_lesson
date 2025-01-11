@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm {
@@ -30,8 +31,6 @@ public class TestForm {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
     }
 
     @Test
@@ -59,7 +58,7 @@ public class TestForm {
         $("#firstName").setValue(FIRST_NAME);
         $("#lastName").setValue(SECOND_NAME);
         $("#userEmail").setValue(EMAIL);
-        $("label[for='gender-radio-1']").click();
+        $("#genterWrapper").$(byText(SEX)).click();
         $("#userNumber").setValue(PHONE);
 
         $("#dateOfBirthInput").click();
